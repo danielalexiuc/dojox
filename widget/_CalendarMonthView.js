@@ -50,6 +50,11 @@ define([
 			var parentNode = evt.target.parentNode;
 			var month = parentNode.cellIndex + (parentNode.parentNode.rowIndex * 4);
 			var date = this.get("value");
+			
+			// Set the "selected" class so the it turns yellow when clicked.
+    			var selectedCls = "dijitCalendarSelectedDate";
+    			query(".dojoxCalendarMonthTemplate", this.domNode).removeClass(selectedCls);
+    			dojo.addClass(parentNode, selectedCls);
 
 			// Seeing a really strange bug in FF3.6 where this has to be called twice
 			// in order to take affect
